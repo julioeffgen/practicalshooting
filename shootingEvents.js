@@ -1,5 +1,3 @@
-console.log('Practical Shooting Rocks');
-
 ShootingEventsList = new Mongo.Collection('shootingEvents');
 /* Initial load
 ShootingEventsList.insert({'date': new Date(2016, 9, 23).getTime(), 'category': 'Shotgun & Silhueta', 'name': 'IV Etapa estadual Shot gun e V Silhueta', 'place': 'CCT – Clube Canarense de Tiro'});
@@ -9,7 +7,6 @@ ShootingEventsList.insert({'date': new Date(2016, 11, 11).getTime(), 'category':
  */
 
 if(Meteor.isClient){
-    // this code only runs on the client
     Template.shootingEvents.helpers({
         'shootingEvent': function () {
             return ShootingEventsList.find();
@@ -18,11 +15,9 @@ if(Meteor.isClient){
             return new Date(milli).toLocaleDateString();
         }
     });
-
     console.log('Hello client');
 }
 
 if(Meteor.isServer){
     console.log('Hello server');
 }
-
