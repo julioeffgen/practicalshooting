@@ -9,7 +9,7 @@
 <template name="shootingEvents">
     <ul>
         {{#each shootingEvent}}
-            <li>{{date}} : {{category}} : {{name}} : {{place}}</li>
+            <li>{{milliToDate date}} : {{category}} : {{name}} : {{place}}</li>
         {{/each}}
     </ul>
 </template>
