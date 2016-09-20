@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
  
-import { Events } from '../api/events.js';
+import { Events } from '../api/collections.js';
  
 // Event component - represents a single event
 export default class Event extends Component {
