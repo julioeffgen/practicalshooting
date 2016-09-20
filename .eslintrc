@@ -7,7 +7,7 @@
       "meteor"
     ],
     "extends": [
-      "airbnb-base/legacy",
+      "airbnb",
       "plugin:meteor/recommended"
     ],
     "settings": {
