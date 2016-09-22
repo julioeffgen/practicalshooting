@@ -7,13 +7,13 @@ const ShootingClubsList = Clubs;
 Meteor.startup(() => {
   if (!ShootingEventsList.findOne()) {
     //  Bootstrap Events
-       ShootingEventsList.insert({
+    ShootingEventsList.insert({
       date: new Date(2016, 9, 23).getTime(),
       category: 'Shotgun & Silhueta',
       name: 'IV Etapa estadual Shot gun e V Silhueta',
       place: 'CCT – Clube Canarense de Tiro',
     });
-       ShootingEventsList.insert({
+    ShootingEventsList.insert({
       date: new Date(2016, 10, 27).getTime(),
       category: 'Shotgun & Silhueta',
       name: 'V Etapa estadual Shot gun e VI Silhueta',
