@@ -22,6 +22,7 @@ Meteor.startup(() => {
     ShootingEventsList.insert({
       date: new Date(2016, 11, 11).getTime(),
       category: 'Shotgun & Silhueta',
+
       name: 'Final de Shot gun e Silhueta',
       place: 'CTCI - Clube de Tiro de Cachoeiro de Itapemirim',
     });
