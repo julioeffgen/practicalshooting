@@ -1,0 +1,11 @@
+sudo: required
+language: node_js
+node_js:
+  - "6"
+  - "6.1"
+services:
+  - docker
+before install:
+  - npm install
+install:
+  - docker-compose up
