@@ -11,7 +11,8 @@
       "plugin:meteor/recommended"
     ],
     "settings": {
-      "import/resolver": "meteor"
+      "import/resolver": "meteor",
+      "import/core-modules": [ "meteor/meteor", "meteor/mongo" ]
     },
     "rules": {}
 }
