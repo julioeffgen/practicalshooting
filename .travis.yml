@@ -3,9 +3,10 @@ language: node_js
 node_js:
   - "6"
   - "6.1"
-services:
+services:  # Need to confirm which services must be added here
   - docker
+  - mongodb
 before install:
-  - npm install
+  - curl https://install.meteor.com/ | sh
 install:
-  - docker-compose up
+  - npm install
