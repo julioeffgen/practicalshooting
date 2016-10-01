@@ -23,4 +23,4 @@ app:
   environment:
    - REPO=https://github.com/julioeffgen/practicalshooting/
    - ROOT_URL=http://52.67.97.169:80
-   - MONGO_URL=mongodb://db:27017/practicalshooting
+   - MONGO_URL=mongodb://db/practicalshooting
