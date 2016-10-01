@@ -13,7 +13,7 @@ install:
 deploy:
   skip_cleanup: true
   on:
-    branch: dockerize-mongodb
+    branch: master
 after_deploy:
   echo "Deployed...."
 notifications:
