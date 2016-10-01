@@ -10,3 +10,14 @@ before install:
   - curl https://install.meteor.com/ | sh
 install:
   - npm install
+deploy:
+  skip_cleanup: true
+  on:
+    branch: master
+after_deploy:
+  echo "Deployed...."
+notifications:
+  email:
+    - julioeffgen@gmail.com
+    - picorelli.luiz@gmail.com
+    - vinicius.ronconi@gmail.com
