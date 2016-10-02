@@ -1,60 +1,50 @@
 sudo: required
 language: node_js
 node_js:
-  - '6'
-  - '6.1'
-
+- '6'
+- '6.1'
 addons:
- apt:
- sources:
-   — mongodb-3.0-precise
- packages:
-   — mongodb-org-server
-
+  apt: 
+  sources: — mongodb-3.0-precise
+  packages: — mongodb-org-server
 services:
-  - docker
-  - mongodb
-
+- docker
+- mongodb
 notifications:
   email:
-    - julioeffgen@gmail.com
-    - picorelli.luiz@gmail.com
-    - vinicius.ronconi@gmail.com
-
+  - julioeffgen@gmail.com
+  - picorelli.luiz@gmail.com
+  - vinicius.ronconi@gmail.com
 env:
   global:
-    DOCKER_EMAIL:
-      secure: gTv+PSM9N87OO1bpna/B6X4I0JQQnvaNMQpo4EMUezV8GO/XkQoIvvU0Pdr617MU1avL0jqzAJZmKRK79p+ING5drsnuxU8QgiF03B1Slx/pC+Dq5FvrOy83X/uIyYCA1/jpNAg7YM5T83BZdsalxbTAjYcdP8KdFfYqSp+7ZK81tAjcX8Orw8+okCC+P959qtoqNI6jo4tTyvEAFpB7orx7J077jpcAflC3n3u/KCQDE0gI9W9eRhbmZrKn0T+C242wjChkYtCYPi/3Gv0h+vc/ORunoV9wf6oFAkmNyDlX9y+OnKCF5ECBQHCFGTw2RjxRQNmsl8Bvt1zt0vbwPuTKNbOSvg+I9xa6FIXV5EQgb2VRfghpxx67PrX3MbqkqufB1w9YksD3lznlwXFIQBBsxpu85ftQLvaOfu6YWwKPiSYK04BcUKOTdrTOMQCTXGrRTeLy4CI3KRXdLuoURu72iJ4xxrsDef1nE7lDkt/1a7rhkB4fYTCXs915DfmYmFNvPftbs8qUJ1TXbBRd9R9N/DXBPDoC5f8iEdC1zkrs7xyiB1BbnRAfx76PNA+pxrjmBVADWC0Jva5SlCi8B+AITyHjeV4WhuzqVsp8rR3ou0/xiarUFne4tIRNtSaw3pDRUQ4EzsKfRV97oQx2sJeKFw5LvT8t9d9BKUUH0PE=
-    DOCKER_USER:
-      secure: a/zoL5jv+xgcmy7thHs+WvdfePI4AupXcZ6d7vAc1Tlfxmrj2g/HrfD256+k86qcAkEmr5/jMIROIvldGzQ+OGJy9DGIAuTiorT56zbbmCEvR8XHrNAbmt96BsjNCz7iqNc3LTZk5MEXeMw3f+doHY7T6wyjFK12vMLYZFaHov7RCLxJR1sSHzqggHwpsnoZHU5S8D68ZvS9IU/hSadrR2H4s9MBK5M/f3Hecqjyh8q5dL4E/8YGDwLAoo/JGD0+hnlpvsYvoMTp6IuP8b/W5F7BiMhhEc6+hdMWlpvK3eOkxVrJn2fEKSrMp09r2FJ69azCPQpNkj8wPBfcwHQ5v2z4Rvt7Sfz+lDdgs1ceKwRNNdWqtPbBvq6s5KvHcC1Hln8uQoZx9xL8X6ojyu8ZHXUjzWcNCOZJhXA1Xggd0WIXPpAYgklgkF4wJgwT5giQo93yuZfbGBqldKUoxAu/Q722qavL67s8p7nK2axD6d2W/3HMGvJlGPwEr+wHVlt4lmFXVL12zTpv7cyG7dV8MWmSrZlP1dTMzLOMt7Pgid6gEdINUz19WjiJzCCNIDk/U4o/3dAyuKXXchFK7NANZC65eEewZI/ew7szQYyICGgjkcTtxR0JQcrOn3vUUSiKY7kzv/6S0UQ31nxIdgm8CJ5q5LlAwC9/nCIvhDnEQGQ=
-    DOCKER_PASS:
-      secure: h5Q0zCoSkAQWXrPV8daYrdclGOrdM6VcGomubxAjWUJi26mlVNGcSv5brKutKzVgSdjFWUcX7nXq3Q32SE6wS6mZt5SU/MtkWwgSHlzyAVBRRK2+sYlf0XWudVf0Yz3FJWOAYU+VXcpqyYQY+o35uMQexAthLfXM0ZmNs0xMPoOWFnnLUIUTUkdR5ymn9+7XSHTlgUFZtlEm3aCjqOpcuJT5+VPekL6E7mEhbAiEboc0yzpqexIvsozNfy7NeYGd9JBocEc+ZB+Ei+PcBRPxinukkcbEb2Kg/JT2MWeAzs5xCEBQlyKr0hN3Q4blwl6zEBTOD1DErzUAkV0qx7ZVmnoZoF7exf/yGYuBCQJwLUyCqNXP6WvHCzM3EI3EfRPLI5yWxDnMlFmUSUce+hKhN1rGtKbPf8E6FMdc+DcDScTeP8AKgVdnIFYGOYaEOd40Ex3vnb/UuvZXonBZ0hIv7PbMM65gl9fN9fONsdNoMnA+/x53rtJ9/mcakb5Gbo708FSZZdU0OYh0CKqwEFhq4+xhiqMpI3u/iC7mmMNWa/JbJb+kDCiFcvJQHcx+LOGN6+DYqayWHTMT5DJnY2AvzR5BKFoQNh7DM5tA6czKU55vviE/q6lLZY5DPiiTxlnGP0+K2NLHQlv8VhBW3CTjB86iXdYxkVI3zNkoHCRttkQ=
     COMMIT:
-      - ${TRAVIS_COMMIT::6}
-
+    - ${TRAVIS_COMMIT::6}
+    DOCKER_EMAIL:
+      secure: Hwhe6v7fL8RkxnPMoTtU6lCHfC55Vc3dIcmJTgu8XZmKs7Ir3Rsrb8QLi4PlNvwNBmTN6aPdXdO0n4nf4J4oaJ7NvsoRsYc+ekTOyORxX4WmvNTanKE/wp2asXN9Tj1en2T6em4eKoN5hLlHgXC3wpJT2c7xy2v/X19s/iG3CV2JSHI+xUn2NkJdP1UfRky5wjX8cLg4ZwS0Pu4EvgZD1roBgJ1T70XwsN7CSbpowVgIf7VPYBhKCKXyb8FiSVmc4PoaCXyD27NDhycAPU31RjbPkWwrRzZwRadJMacW4PcBjcd+6LXzc61iP3Vt9fPy9mFiynLBtEK1N4lw0qbpcSSLa2WZk1Vpeq8/hGXYllBf03Y/sykH6ksU2AB+P0L4g1Wd3MdsOxK9XFHlvdCDbSEhKyQtVqBYhMdyAQ4Pbp4RCnT4U/exC2BPXDLQyrV8Kyu8h/8yudtQuJUFHwLOi7kdG1cK8DQU98Q0Aw9dX+E3/ua3THDhrMnfHZrzkyj/itubkXSVcr2JDoA7jqZGhIKRTO7v9H1PQDUIPet6BiWavLf0e0PrPnM9uyHkSZSpe87FuKTescl1PWkLLkrY3T3uMp9P8PF9rISO9zJ5SWhzxGF70FIpRvv3MmTad1wew5AAWQqodjJSixVIo5h3reRcaCaE2cSYtnYwQjZyRu8=
+    DOCKER_USER:
+      secure: NtvZo3pBq2Uu21/DbAFoZ0xf3aQSuSxaGRuM+XB5yimkosQdzpkz9njsXevLW22Mshe8NdA+JZLInsShCEKqmi6GWQZ8HJfdWipP/yadKVRAYAeb5MxRTHjqTQrP90tTs5zfkGj+MqsrygJmy4ICPn05olM+4zOmlFp/p8ztX1TrzQ795wlb1cCyTC/BQH5KSk6ALeIuvqLom0tuyFV4Pp7w2tQGmG2cisAWfMY+Y5/BKt8UkYlC5OzuD78L51MyjwtqGZ2Gyx8jCoMGu2c5rLoHkvl2trYsN1W24dAptFJ07S/wkygHUf3hWZx8TAiCZw57LlTVJZ4CvPlD999TLVaSDca3LuIQduNv4tVMlLIJ6mIDsYi0Jpcgx6o3CF/cuB+d0vlLww9/2QtrER9JJkWkpLm2l4YjbXgmDXFRgJrXbeJ2HMChnzZUtaTccTTUU5muhwk+skHliHM6ET9BpZ8D+sgxlHkWyvxQ9QnVWGbLkr/vCmTUkYXrhTNi4VwAnjEin3Na+oUDrA7e2v3Ms7GI4GE9l/vmrN7JlJ0JLGFRvHuqRMMUElIKVPYQqymR3AS9SqF8HJ3PtdC8Tqu+XGkca2DTrcJK4qDZRgJwaWe7B0MTOcBP+Fs/1ybk0S5uhi35mj1pqWLRj/OreNpfkScDITSgNAfOO+44VqnPedY=
+    DOCKER_PASS:
+      secure: C1Vos4PyWBWKx4pVslYWyPcZfXIb/F2qxWLveYHxvoRcLQ2s0iAr4q4fdhRHPLmbfcTGC7J0/mIkiTw0/bmTZSzFUpNiusemkriT56FIUmdGuu4ZZHHuydU0EFATOPgN1Q1TIJ6+TJnX7bjpDeRecyYj462XxGD8jShVEOt/N1/Bs3sE05YNaNPVe4uwBYDcWdrMqjN3G+NHNohCI3GcyxM0W8agDwmDW9VY4uazozRdDrML14nvhDndi4Ori/FCoQi6TecaHD/ofS9Ndsf4M83DrRhxeyu4xcjKduUkbD/hb5piuJp837TSGqN7Cw9PWuu/ud5B4AXXguiok632WNKZQqPuo9v3cWXuPRFwh02koRMnI954BDB7jeoHUWEfrSiTMWzZ4g5/oz+nPIoiF2+LvbmcZECnOkP/O2Krxq6Q9N0bt2K2sgC5FZwg+7ZD5AS49H1OfgrOu4AijxAmFJC9+vTohNX/7jzJ0apPuwvpWGr/AWLAEnt5/Sw5S6a9zlqpCsGQmHI4taNnhASyFiwAhPION3zoxgbUUrkwXAEbEl9RcuT1QeXALRyY0XdOYH3Rgxnvi/YksBuwHbVdeuI4vGrQkIuLHrxqWQM25GmyCpb0RiYyqp+LcV61d5Io+sqQT6PJspS0JzktbJpN8fx0eUF2zWnmUnMn6Jdd/+o=
 before install:
-  - curl https://install.meteor.com/ | sh
+- curl https://install.meteor.com/ | sh
 install:
-  - npm install
-
+- npm install
 before_script:
-  - sleep 15
-after_script:
-
+- sleep 15
+after_script: 
 after_success:
-  - echo $DOCKER_USER
-  - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USER" -p="$DOCKER_PASS"
-  - export REPO=$DOCKER_USER/practicalshooting
-  - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
-  - echo $REPO
-  - echo $TAG
-  - echo $COMMIT
-  - echo $REPO:$TAG:$COMMIT
-  - docker build -f Dockerfile -t $REPO:$COMMIT .
-  - docker tag $REPO:$COMMIT $REPO:$TAG
-  - docker tag $REPO:$COMMIT $REPO:travis-$TRAVIS_BUILD_NUMBER
-  - docker push $REPO
-
+- echo $DOCKER_USER
+- docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USER" -p="$DOCKER_PASS"
+- export REPO=$DOCKER_USER/practicalshooting
+- export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH; fi`
+- echo $REPO
+- echo $TAG
+- echo $COMMIT
+- echo $REPO:$TAG:$COMMIT
+- docker build -f Dockerfile -t $REPO:$COMMIT .
+- docker tag $REPO:$COMMIT $REPO:$TAG
+- docker tag $REPO:$COMMIT $REPO:travis-$TRAVIS_BUILD_NUMBER
+- docker push $REPO
 deploy:
   skip_cleanup: true
   on:
