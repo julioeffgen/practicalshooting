@@ -17,8 +17,7 @@ notifications:
   - vinicius.ronconi@gmail.com
 env:
   global:
-    COMMIT:
-    - ${TRAVIS_COMMIT::6}
+    - COMMIT=${TRAVIS_COMMIT::6}
 before install:
 - curl https://install.meteor.com/ | sh
 install:
