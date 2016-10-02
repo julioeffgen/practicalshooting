@@ -31,7 +31,7 @@ install:
 - npm install
 after_success:
 - echo $DOCKER_USER
-- docker login -u=$DOCKER_USER -p=$DOCKER_PASS
+- docker login -u=viniciusronconi -p=sh00T@2016
 - export REPO=$DOCKER_USER/practicalshooting
 - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH; fi`
 - echo $REPO
