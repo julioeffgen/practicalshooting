@@ -29,12 +29,9 @@ before install:
 - curl https://install.meteor.com/ | sh
 install:
 - npm install
-before_script:
-- sleep 15
-after_script: 
 after_success:
 - echo $DOCKER_USER
-- docker login -u $DOCKER_USER -p $DOCKER_PASS
+- docker login -u=$DOCKER_USER -p=$DOCKER_PASS
 - export REPO=$DOCKER_USER/practicalshooting
 - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH; fi`
 - echo $REPO
