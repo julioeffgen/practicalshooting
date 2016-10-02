@@ -28,8 +28,9 @@ after_success:
 - echo $DOCKER_USER
 - echo $TRAVIS_BRANCH
 - echo $TRAVIS_COMMIT
-- echo ${COMMIT:1:6}
-- echo ${COMMIT:0:6}
+- echo ${TRAVIS_COMMIT:1:6}
+- echo ${TRAVIS_COMMIT:0:6}
+- echo ${TRAVIS_COMMIT::6}
 - docker login -u=$DOCKER_USER -p=$DOCKER_PASS
 - export REPO=$DOCKER_USER/practicalshooting
 - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
