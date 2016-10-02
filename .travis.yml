@@ -26,9 +26,10 @@ install:
 after_success:
 - echo $DOCKER_EMAIL
 - echo $DOCKER_USER
+- echo $TRAVIS_BRANCH
 - docker login -u=$DOCKER_USER -p=$DOCKER_PASS
 - export REPO=$DOCKER_USER/practicalshooting
-- export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH; fi`
+- export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
 - echo $REPO
 - echo $TAG
 - echo $COMMIT
