@@ -30,6 +30,12 @@ after_success:
 - docker tag $REPO:$COMMIT $REPO:$TAG
 - docker tag $REPO:$COMMIT $REPO:travis-$TRAVIS_BUILD_NUMBER
 - docker push $REPO
+before_deploy:
+  - 'curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"'
+  - 'unzip awscli-bundle.zip'
+  - './awscli-bundle/install -b ~/bin/aws'
+  - 'export PATH=~/bin:$PATH'
+  - 'aws s3 rm s3://practicalshooting-deploy --recursive --region sa-east-1'
 deploy:
   skip_cleanup: true
   on:
