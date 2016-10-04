@@ -1,18 +1,21 @@
 {
-    "parser": "babel-eslint",
-    "parserOptions": {
-      "allowImportExportEverywhere": true
-    },
-    "plugins": [
-      "meteor"
-    ],
-    "extends": [
-      "airbnb",
-      "plugin:meteor/recommended"
-    ],
-    "settings": {
-      "import/resolver": "meteor",
-      "import/core-modules": [ "meteor/meteor", "meteor/mongo" ]
-    },
-    "rules": {}
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "allowImportExportEverywhere": true
+  },
+  "plugins": [
+    "meteor",
+    "import"
+  ],
+  "extends": [
+    "airbnb"
+  ],
+  "rules": {
+    "react/require-extension": "off",
+    "import/prefer-default-export": "off"
+  },
+  "settings": {
+    "import/resolver": "meteor",
+    "import/core-modules": [ "meteor/meteor", "meteor/mongo", "meteor/random", "meteor/check", "meteor/practicalmeteor:chai", "meteor/hwillson:stub-collections" ]
+  }
 }
