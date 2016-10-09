@@ -1,0 +1,26 @@
+data:
+  extends:
+    file: docker-compose-common.yml
+    service: data
+
+db:
+  extends:
+    file: docker-compose-common.yml
+    service: db
+  ports:
+    - "27018:27017"
+  volumes_from:
+    - data
+
+app:
+  extends:
+    file: docker-compose-common.yml
+    service: app
+  ports:
+    - "3000:80"
+  links:
+    - db:db
+  environment:
+   - REPO=https://github.com/julioeffgen/practicalshooting/
+   - ROOT_URL=http://localhost
+   - MONGO_URL=mongodb://db/practicalshooting

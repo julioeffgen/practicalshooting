@@ -1,0 +1,52 @@
+sudo: required
+language: node_js
+node_js:
+- '6'
+- '6.1'
+addons:
+  apt: 
+  sources: — mongodb-3.0-precise
+  packages: — mongodb-org-server
+services:
+- docker
+- mongodb
+notifications:
+  email:
+  - julioeffgen@gmail.com
+  - picorelli.luiz@gmail.com
+  - vinicius.ronconi@gmail.com
+env:
+  global:
+    - COMMIT=${TRAVIS_COMMIT::6}
+before install:
+- curl https://install.meteor.com/ | sh
+install:
+- npm install
+after_success:
+- docker login -u=$DOCKER_USER -p=$DOCKER_PASS
+- export REPO=$DOCKER_USER/practicalshooting
+- export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
+- docker build -f Dockerfile -t $REPO:$COMMIT .
+- docker tag $REPO:$COMMIT $REPO:$TAG
+- docker tag $REPO:$COMMIT $REPO:travis-$TRAVIS_BUILD_NUMBER
+- docker push $REPO
+before_deploy:
+  - zip -r latest *
+  - mkdir -p dpl_cd_upload
+  - mv latest.zip dpl_cd_upload/latest.zip
+deploy:
+  - provider: s3
+    local_dir: dpl_cd_upload
+    skip_cleanup: true
+    bucket: practicalshootingcodedeploy
+    on:
+      branch: dockerize-mongodb
+  - provider: codedeploy
+    bucket: practicalshootingcodedeploy
+    key: latest.zip
+    bundle_type: zip
+    application: PracticalShooting
+    deployment_group: PracticalShootingDeploymentGroup
+    region: sa-east-1
+    on:
+      branch: dockerize-mongodb

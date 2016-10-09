@@ -1,0 +1,15 @@
+data:
+  image: mongo:3.2.9
+  volumes:
+    - /var/lib/mongodb/practicalshooting
+  command: /bin/true
+
+db:
+  image: mongo:3.2.9
+  restart: always
+
+app:
+  build: .
+  restart: always
+  environment:
+   - REPO=https://github.com/julioeffgen/practicalshooting/
