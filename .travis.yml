@@ -47,5 +47,6 @@ deploy:
     bundle_type: zip
     application: PracticalShooting
     deployment_group: PracticalShootingDeploymentGroup
+    region: sa-east-1
     on:
       branch: dockerize-mongodb
