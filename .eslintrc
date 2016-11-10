@@ -5,8 +5,14 @@
   },
   "plugins": [
     "meteor",
-    "import"
+    "import",
+    "react",
+    "jsx-a11y"
   ],
+
+  "env": {
+    "browser": true
+  },
   "extends": [
     "airbnb"
   ],
