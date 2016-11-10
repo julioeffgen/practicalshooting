@@ -8,25 +8,23 @@ import { Clubs } from '../../collections.js';
 
 export { Clubs };
 
-Meteor.publish('clubs', function tasksPublication() {
-  return Clubs.find({
-    $or: [
-      { private: { $ne: true } },
-      { owner: this.userId },
-    ],
-  });
-});
-
 Meteor.methods({
   'clubs.remove': function removeClub(clubId) {
     check(clubId, String);
 
     const club = Clubs.findOne(clubId);
-    if (club.private && club.owner !== this.userId) {
-      // If the task is private, make sure only the owner can delete it
-      throw new Meteor.Error('not-authorized');
+    if (!club) {
+      throw new Meteor.Error('not-allowed');
     }
 
     Clubs.remove(clubId);
+  },
+  'clubs.search': function findClubs(clubName) {
+    if (clubName == null || clubName === '') {
+      return Clubs.find();
+    }
+    return Clubs.find({
+      name: { $eq: clubName },
+    });
   },
 });
