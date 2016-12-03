@@ -1,0 +1,25 @@
+sudo: required
+language: node_js
+node_js:
+- '6'
+- '6.1'
+addons:
+  apt:
+  sources: — mongodb-3.0-precise
+  packages: — mongodb-org-server
+services:
+- mongodb
+notifications:
+  email:
+  - julioeffgen@gmail.com
+  - picorelli.luiz@gmail.com
+  - vinicius.ronconi@gmail.com
+env:
+  global:
+    - COMMIT=${TRAVIS_COMMIT::6}
+before install:
+- curl https://install.meteor.com/ | sh
+install:
+- npm install
+after_success:
+- meteor npm test

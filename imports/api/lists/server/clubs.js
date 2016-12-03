@@ -9,7 +9,14 @@ import { Clubs } from '../../collections.js';
 export { Clubs };
 
 Meteor.methods({
-  'clubs.remove': function removeClub(clubId) {
+  insertClub: function insertClub(club) {
+    const clubId = Clubs.insert(club);
+    if (!clubId) {
+      throw new Meteor.Error('not-allowed');
+    }
+    return Clubs.findOne(clubId);
+  },
+  removeClub: function removeClub(clubId) {
     check(clubId, String);
 
     const club = Clubs.findOne(clubId);
@@ -19,12 +26,19 @@ Meteor.methods({
 
     Clubs.remove(clubId);
   },
-  'clubs.search': function findClubs(clubName) {
+  'search.clubs.by.name': function searchClubsByNane(clubName) {
     if (clubName == null || clubName === '') {
       return Clubs.find();
     }
     return Clubs.find({
       name: { $eq: clubName },
     });
+  },
+  findClubByCode: function findClubByCode(clubCode) {
+    let data = {};
+    if (clubCode != null && clubCode !== '') {
+      data = { code: { $eq: clubCode } };
+    }
+    return Clubs.findOne(data);
   },
 });
